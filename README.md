@@ -1,8 +1,11 @@
 # CRUD VueJS
 Aprendendo VueJS, video aulas do canal Descompila no Youtube.
 
+# Install NodeJs
+- https://nodejs.org/
 
-# Back-end
+# Back-end - Na pasta backend
+
 
 ## Instalar dependências
 ```
@@ -14,7 +17,7 @@ npm install
 npm start
 ```
 
-# Front-end
+# Front-end - Na pasta frontend
 
 ## Instalar dependências
 ```
