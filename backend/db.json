@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Caneta Bic Preta",
+      "quant": "20",
+      "valor": 20.09
+    },
+    {
+      "id": 2,
+      "name": "Caneta Bic Azul",
+      "quant": 15,
+      "valor": 20.09
+    },
+    {
+      "name": "Tablete",
+      "quant": "60",
+      "valor": "2000",
+      "id": 3
+    },
+    {
+      "name": "Geladeira",
+      "quant": "30",
+      "valor": "4000",
+      "id": 4
+    }
+  ]
+}
