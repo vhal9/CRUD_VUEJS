@@ -2,27 +2,33 @@
   "products": [
     {
       "id": 1,
-      "name": "Caneta Bic Preta",
+      "name": "Caneta Bic Pret",
       "quant": "20",
       "valor": 20.09
     },
     {
-      "id": 2,
-      "name": "Caneta Bic Azul",
-      "quant": 15,
-      "valor": 20.09
+      "id": 3,
+      "name": "Caneta Compactor",
+      "quant": "10",
+      "valor": "10"
     },
     {
-      "name": "Tablete",
-      "quant": "60",
-      "valor": "2000",
-      "id": 3
+      "id": 4,
+      "name": "Geladeira Brastemp",
+      "quant": "90",
+      "valor": "90"
     },
     {
-      "name": "Geladeira",
-      "quant": "30",
-      "valor": "4000",
-      "id": 4
+      "id": 5,
+      "name": "fogão",
+      "quant": "200",
+      "valor": "2020"
+    },
+    {
+      "id": 8,
+      "name": "Ar condicionado",
+      "quant": "200",
+      "valor": "200"
     }
   ]
 }

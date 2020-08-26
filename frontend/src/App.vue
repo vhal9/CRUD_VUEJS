@@ -6,7 +6,7 @@
         <a href="#" class="brand-logo center">Produtos Front</a>
       </div>
     </nav>
-
+    
     <div class="container">
 
       <form @submit.prevent="salvar">
@@ -21,7 +21,7 @@
           <button class="waves-effect waves-light btn-small">Salvar<i class="material-icons left">save</i></button>
 
       </form>
-
+      
       <table>
 
         <thead>
@@ -37,14 +37,14 @@
 
         <tbody>
 
-          <tr v-for="product of products" :key="product.id">
+          <tr v-for="productList of products" :key="productList.id">
 
-            <td>{{product.name}}</td>
-            <td>{{product.quant}}</td>
-            <td>{{product.valor}}</td>
+            <td>{{productList.name}}</td>
+            <td>{{productList.quant}}</td>
+            <td>{{productList.valor}}</td>
             <td>
-              <button @click="editar(product)" class="waves-effect btn-small blue darken-1"><i class="material-icons">create</i></button>
-              <button @click="remover(product)" class="waves-effect btn-small red darken-1"><i class="material-icons">delete_sweep</i></button>
+              <button @click="editar(productList)" class="waves-effect btn-small blue darken-1"><i class="material-icons">create</i></button>
+              <button @click="remover(productList)" class="waves-effect btn-small red darken-1"><i class="material-icons">delete_sweep</i></button>
             </td>
 
           </tr>
@@ -52,62 +52,44 @@
         </tbody>
       
       </table>
+      
 
     </div>
-
+    
   </div>
 </template>
 
 <script>
-  import Product from './services/products';
+  import { mapGetters, mapActions } from "vuex";
+  
   export default{
-    data(){
-      return {
-        products: [],
-        product: {
-          id:'',
-          name:'',
-          quant: '',
-          valor: ''
-        }
-      }
+    name: "App",
+
+    computed: {
+      ...mapGetters("produtosModule", ["products"]),
+      ...mapGetters("produtoModule", ["product"])
     },
-    mounted(){
-      this.listar()
+    mounted (){
+      this.listar();
     },
     methods:{
+      ...mapActions("produtosModule", ["getProductsAction", "setProductsAction"]),
+      ...mapActions("produtoModule", ["saveProductAction", "setProductAction", "deleteProductAction"]),
       listar(){
-        Product.listar().then(resposta => {
-          this.products = resposta.data
-        })
+        this.getProductsAction();
       },
       salvar(){
-        if (!this.product.id){
-          Product.salvar(this.product).then(()=>{
-            this.product = {}
-            alert('Salvo com sucesso!')
-            this.listar()
-          })
-        }
-        else{
-          Product.atualizar(this.product).then(()=>{
-            this.product = {}
-            alert('Atualizado com sucesso!')
-            this.listar()
-          })
-        }
+        this.saveProductAction(this.product)
+        this.listar();
       },
-      editar(product){
-        this.product = product
-        this.listar()
+      editar(productList){
+        this.setProductAction(productList);
+        this.listar();
       },
-      remover(product){
-        if (confirm('Deseja excluir o produto?')){
-          Product.apagar(product).then(()=>{
-            this.listar();
-          })
-        }
+      remover(productList){
+        this.deleteProductAction(productList);
+        this.listar();
       }
-    }
+    },
   };
 </script>

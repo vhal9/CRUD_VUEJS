@@ -1,16 +1,17 @@
 import {http} from './config'
 
-export default{
-    listar: () => {
+const ProductServices = {
+    listar: async () => {
         return http.get('products')
     },
-    salvar: (product) => {
+    salvar: async (product) => {
         return http.post('products',product)
     },
-    atualizar:(product) => {
+    atualizar: async (product) => {
         return http.put(`products/${product.id}`, product)
     },
-    apagar: (product) =>{
+    apagar: async (product) =>{
         return http.delete(`products/${product.id}`)
     }
-}
+};
+export default  ProductServices;

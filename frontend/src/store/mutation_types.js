@@ -1,0 +1,10 @@
+//Mutations products
+export const GET_STORE_PRODUCTS = "GET_STORE_PRODUCTS";
+export const GET_PRODUCTS_ACTION = "GET_PRODUCTS_ACTION";
+export const SET_PRODUCTS_ACTION = "SET_PRODUCTS_ACTION";
+
+
+//mutations product
+
+export const CLEAN_PRODUCTS_ACTION = "SAVE_PRODUCT_ACTION";
+export const SET_STORE_PRODUCT = "GET_STORE_PRODUCT"
